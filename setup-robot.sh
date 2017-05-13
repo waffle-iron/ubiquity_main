@@ -26,7 +26,7 @@ su ubuntu -c "rosdep update"
 su ubuntu -c "bash -c \" cd /home/ubuntu/catkin_ws; rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y\" "
 su ubuntu -c "bash -c \" cd /home/ubuntu/catkin_ws;source /opt/ros/kinetic/setup.bash; catkin_make -j 1\" "
 
-cat <<EOM >/usr/sbin/magni-joystick
+cat <<'EOM' >/usr/sbin/magni-joystick
 #!/bin/bash
 
 function log() {
@@ -68,7 +68,7 @@ log info "magni-joystick: Started roslaunch as background process, PID $PID, ROS
 echo "$PID" > $log_path/magni-joystick.pid
 
 wait "$PID"
-EOM
+'EOM'
 
 chmod +x /usr/sbin/magni-joystick
 
@@ -87,7 +87,7 @@ WantedBy=multi-user.target
 
 EOM
 
-cat <<EOM >/usr/sbin/magni-speech-commands
+cat <<'EOM' >/usr/sbin/magni-speech-commands
 #!/bin/bash
 
 function log() {
@@ -129,7 +129,7 @@ log info "magni-speech-commands: Started roslaunch as background process, PID $P
 echo "$PID" > $log_path/magni-joystick.pid
 
 wait "$PID"
-EOM
+'EOM'
 
 chmod +x /usr/sbin/magni-speech-commands
 
